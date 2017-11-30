@@ -87,66 +87,66 @@
 			<div class="right_col" role="main">
 				<s:include value="/WEB-INF/content/department/header.jsp"></s:include>
 				<h2>Department Dashboard</h2>
-				
+
 				<hr>
 
-				<div class="row">
-					<div class="x_panel">
+				
+
 					<div class="row">
-						
-					</div>
-						<div class="row">
-						<div class="col-md-12 col-sm-6 col-xs-12" style="padding: 10px;">
-							<s:url var="patientAddUrl" namespace="/patient"
-								action="visits.html"></s:url>
-							<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
-								<i class="fa fa-user-plus" style="padding: 10px;"></i>Add Visit
+						<div class="x_panel">
+
+							<div class="row">
+								<div class="col-md-12 col-sm-6 col-xs-12" style="padding: 10px;">
+									<s:url var="patientAddUrl" namespace="/patient"
+										action="visits.html"></s:url>
+									<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
+										<i class="fa fa-user-plus" style="padding: 10px;"></i>Add Visit
+								</s:a>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
+									<s:url var="patientAddUrl" namespace="/patient"
+										action="registration-form.html"></s:url>
+									<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
+										<i class="fa fa-user-plus" style="padding: 10px;"></i>Registration Desk
 						</s:a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
-						</div>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
+									<s:url var="patientListUrl" namespace="/patient"
+										action="list.html"></s:url>
+									<s:a href="%{#patientListUrl}" cssClass="mainSelect green">
+										<i class="glyphicon glyphicon-edit" style="padding: 10px;"></i>Patients' Modifications
+						</s:a>
+								</div>
+							</div>
 						</div>
 
-<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
-							<s:url var="patientAddUrl" namespace="/patient"
-								action="registration-form.html"></s:url>
-							<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
-								<i class="fa fa-user-plus" style="padding: 10px;"></i>Registration Desk
-						</s:a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
-							<s:url var="patientListUrl" namespace="/patient"
-								action="list.html"></s:url>
-							<s:a href="%{#patientListUrl}" cssClass="mainSelect green">
-								<i class="glyphicon glyphicon-edit" style="padding: 10px;"></i>Patients' Modifications
-						</s:a>
-						</div>
-						</div>
-					</div>
 
+					</div>
 
 				</div>
 
+				<!-- /page content -->
+
+				<!-- footer content -->
+				\
+
+				<footer>
+					<div class="pull-right">
+						©2017 All Rights Reserved. <a>Faculty of Dental Science.</a>
+						Privacy and Terms
+					</div>
+					<div class="clearfix"></div>
+				</footer>
+				<!-- /footer content -->
 			</div>
-
-			<!-- /page content -->
-
-			<!-- footer content -->\
-			
-			<footer>
-				<div class="pull-right">
-					©2017 All Rights Reserved. <a>Faculty of Dental Science.</a>
-					Privacy and Terms
-				</div>
-				<div class="clearfix"></div>
-			</footer>
-			<!-- /footer content -->
 		</div>
-	</div>
 
-	<s:include value="/WEB-INF/content/common/js-include-mod.jsp"></s:include>
-
+		<s:include value="/WEB-INF/content/common/js-include-mod.jsp"></s:include>
 </body>
 </html>
 

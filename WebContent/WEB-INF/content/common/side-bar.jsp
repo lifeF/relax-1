@@ -33,6 +33,11 @@
 				
 			<li><a><i class="fa fa-users"></i>Users</a>
 			<li><a><i class="fa fa-medkit"></i>ICU</a>
+			<li><a><i class = " fa fa-pie-chart "></i>Diagnostic</a>
+			
+			
+			
+			
 			
 			
 		</ul>

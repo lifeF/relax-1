@@ -10,6 +10,7 @@
 <script src="<s:url value="/vendors/gauge.js/dist/gauge.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/js/bootstrap-confirmation.min.js" includeParams="none"/>"></script>
 <script src="<s:url value="/build/js/custom.min.js" includeParams="none"/>"></script>
+<script src="<s:url value="/vendors/Chart.js/dist/Chart.min.js" includeParams="none"/>"></script>
 
 
 <script src="<s:url value="/js/custom.min.js" includeParams="none"/>"></script>
