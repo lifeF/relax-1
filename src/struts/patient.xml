@@ -26,8 +26,12 @@
 		</action>
 		
 		<action name="list" class="com.doerit.action.patient.PatientAction" method="viewAll">
+			
 			<result name="success">/WEB-INF/content/patient/list.jsp</result>
 		</action>
+		
+		
+		
 		
 		<action name="hidden-list" class="com.doerit.action.patient.PatientAction" method="viewAllHidden">
 			<result name="success">/WEB-INF/content/patient/list.jsp</result>

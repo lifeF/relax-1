@@ -174,9 +174,9 @@
 										</s:iterator>
 									</table>
 
-									<div class="text-center">
-										<s:include value="/WEB-INF/content/common/pager.jsp"></s:include>
-									</div>
+											<div class="text-center">
+												<s:include value="/WEB-INF/content/common/pager.jsp"></s:include>
+											</div>
 								</s:if>
 								<s:else>
 									<div class="bg-info text-white">No patients found</div>

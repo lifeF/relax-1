@@ -84,6 +84,8 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	}*/
 	
 	public String viewAll() {
+		
+		System.out.println("i'm here");
 		try {
 			beforeAction();
 			pager = patientService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());

@@ -15,8 +15,23 @@
 			<result name="PATIENT">/WEB-INF/content/dashboard/user.jsp</result>	
 			<result name="MINISTRY">/WEB-INF/content/dashboard/user.jsp</result>				
 			<result name="input">/WEB-INF/content/dashboard/error.jsp</result>
+			
+			<result name="ADMIN" type="chain">
+				<param name="actionName">listget</param>
+			</result>
 		</action>
 		
+		<action name="listget" class="com.doerit.action.employee.EmployeeAction" method="viewAll">
+			
+			<result name="success">/WEB-INF/content/department/dashboard2.jsp</result>
+		</action>
+		
+				
+		
+		
 	</package>
+	
+	
+	
 		
 </struts>
