@@ -90,6 +90,7 @@
 	<include file="./struts/image.xml" />
 	<include file="./struts/report.xml" />
 	<include file="./struts/patient-guardian.xml" />
+	<include file="./struts/employee.xml" />
 	
 </struts>
 
