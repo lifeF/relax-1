@@ -30,7 +30,6 @@ public interface EmployeeMapper {
 	
 	@Select("SELECT c.ID,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,c.STATUS" + 
     		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
-		
     		" ORDER BY c.ID  " +
     		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")

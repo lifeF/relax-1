@@ -16,14 +16,14 @@
 			<result name="MINISTRY">/WEB-INF/content/dashboard/user.jsp</result>				
 			<result name="input">/WEB-INF/content/dashboard/error.jsp</result>
 			
-			<result name="ADMIN" >
-				/WEB-INF/content/admin/adminDashboard.jsp
-				<!-- <param name="actionName">ListGetForAdmin</param> -->
+			<result name="ADMIN" type="chain" >
+					
+				<param name="actionName">ListGetForAdmin</param> 
 			</result>
 			
 		</action>
 		<action name="ListGetForAdmin" class="com.doerit.action.employee.EmployeeAction" method="viewAll">
-			<result name="success">/WEB-INF/content/admin_page/Initial_admin_dashboard.jsp</result>
+			<result name="success">/WEB-INF/content/admin/adminDashboard.jsp</result>
 		</action>
 		
 		
