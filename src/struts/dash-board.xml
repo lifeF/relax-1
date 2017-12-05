@@ -17,7 +17,7 @@
 			<result name="input">/WEB-INF/content/dashboard/error.jsp</result>
 			
 			<result name="ADMIN" >
-				/WEB-INF/content/admin_page/Initial_admin_dashboard.jsp
+				/WEB-INF/content/admin/adminDashboard.jsp
 				<!-- <param name="actionName">ListGetForAdmin</param> -->
 			</result>
 			
