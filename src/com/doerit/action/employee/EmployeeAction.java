@@ -21,6 +21,9 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	private Employee Employee;
 	private List<Employee> Employees;
 	
+	public String dashboard() {
+		return SUCCESS;
+	}
 	
 	public String viewAll() {
 		System.out.println("OK");
