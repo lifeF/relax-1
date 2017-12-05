@@ -3,7 +3,8 @@ package com.doerit.dao;
 import com.doerit.model.Employee;
 import com.doerit.model.EmployeeExample;
 import com.doerit.model.Patient;
-import com.doerit.model.PatientExample;
+
+import com.doerit.model.fullEmployeeDetails;
 import com.doerit.util.Pager;
 
 import java.util.List;
@@ -22,17 +23,18 @@ public interface EmployeeMapper {
     int deleteByPrimaryKey1(String id);
     int insert(Patient record);
     int insertSelective(Patient record);
-	List<Employee> selectByExample1(EmployeeExample example);
 	
 	
 	
 	
-	@Select("SELECT c.* " + 
-    		" FROM tbl_employee c " +   
-    		" ORDER BY ID DESC " +
+	
+	@Select("SELECT c.ID,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,c.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+		
+    		" ORDER BY c.ID  " +
     		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-	List <Employee> viewAllByStatus(@Param("pager")Pager pager,  @Param("status")byte status);
+	List <fullEmployeeDetails> viewAllByStatus(@Param("pager")Pager pager,  @Param("status")byte status);
 	
 	
 	
