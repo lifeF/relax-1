@@ -11,6 +11,10 @@
 		<action name="ListGetForAdmin" class="com.doerit.action.employee.EmployeeAction" method="viewAll">
 			<result name="success">/WEB-INF/content/admin/adminView.jsp</result>
 		</action>
+		<action name="ChangeState" class="com.doerit.action.employee.EmployeeAction" method="ChangeStateByID">
+			<result name="success">/WEB-INF/content/admin/adminView.jsp</result>
+		</action>
+		
 		
 		
 	</package>

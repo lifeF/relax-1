@@ -13,15 +13,10 @@
 			<li>
 				<s:url var="dashboardUrl" action="ListGetForAdmin.html" namespace="/emp"></s:url>
 				<s:a href="%{#dashboardUrl}">
-					<i class="fa fa-home"></i>Dashboard
+					<i class="fa fa-address-card"></i>Employee Setting
 				</s:a>
 			</li>
-			<li>
-				<s:url var="registrationFormUrl" action="registration-form.html" namespace="/emp"></s:url>
-				<s:a href="%{#registrationFormUrl}">
-					<i class="fa fa-address-card"></i>Employee Registration
-				</s:a>
-			</li>
+			
 			
 			
 			
@@ -30,6 +25,7 @@
 			
 			
 		</ul>
+		
 	</div>
 </div>
             

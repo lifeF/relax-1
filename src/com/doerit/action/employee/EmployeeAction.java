@@ -24,6 +24,9 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	public String dashboard() {
 		return SUCCESS;
 	}
+	public String ChangeStateByID() {
+		return SUCCESS;
+	}
 	
 	public String viewAll() {
 		System.out.println("OK");

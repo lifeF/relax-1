@@ -22,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Dental Science | Home Page</title>
-<s:include value="/WEB-INF/content/common/css.jsp"></s:include>
+<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
 </head>
 
 <body class="nav-md">
@@ -31,13 +31,24 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="" class="site_title"><img src="images/dental.png"
+						<a href="" class="site_title"><img src="../images/dental.png"
 							width="40px" alt=""> <span>Dental Hospital</span></a>
 					</div>
 					<div class="clearfix"></div>
 
 					<!-- menu profile  -->
-					<s:include value="/WEB-INF/content/common/manu_profile.jsp"></s:include>
+					<div class="profile clearfix">
+						<div class="profile_pic">
+							<img src="../images/img.jpg" alt="..."
+								class="img-circle profile_img">
+						</div>
+						<div class="profile_info">
+							<span>Welcome,</span>
+							<h2>
+								<s:property value="%{#session.SESSION_USER.name}" />
+							</h2>
+						</div>
+					</div>
 					<!-- /menu profile -->
 
 					<br />
@@ -174,7 +185,7 @@
 																			<div class="col-xs-12">
 
 																				<div class="row">
-																					<div class="col-xs-11">
+																					<div class="col-xs-10">
 																						<p class="brief">
 																							<s:property value="%{id}" />
 																							:
@@ -182,26 +193,27 @@
 																						</p>
 																					</div>
 
-																					<div class="col-xs-1">
+																					<div class="col-xs-2">
 																						<a href=""><i
 																							class="glyphicon glyphicon-print"> </i> </a>
 																					</div>
 																				</div>
 																				<div class="row">
 																					<div class="left col-xs-8">
-																						<h2>
+																						<h5>
 																							<s:property value="%{title}" />
 																							<s:property value="%{firstName}" />
-																						</h2>
+																						</h5>
 
 																						<ul class="list-unstyled">
 																							<li><i class="fa fa-user"></i><span
-																								style="font-size: 10px;"> <s:property
+																								style="font-size: 10px;"> ROLE : <s:property
 																										value="%{userRole}" />
 																							</span></li>
-																							<li><i class="fa fa-phone"></i> <span
-																								style="font-size: 10px;"> Phone #:
-																									+94321324324</span></li>
+																							<li><i class="fa fa-id-card"></i> <span
+																								style="font-size: 10px;">NIC : <s:property
+																										value="%{nic}" />
+																							</span></li>
 
 																							<li>
 																								<ul class="list-inline prod_color">
@@ -220,7 +232,7 @@
 
 																					<div class="right col-xs-4 text-center  ">
 
-																						<img src="./images/img_male.jpg" alt=""
+																						<img src="../images/img_male.jpg" alt=""
 																							class="img-circle img-responsive s">
 
 
@@ -233,10 +245,14 @@
 																				<div class="col-xs-12 col-sm-7 emphasis">
 																					<div class="row">
 
-																						<button type="button"
-																							class="btn btn-success btn-xs">
-																							<i class="fa fa-user"> </i> Set state
-																						</button>
+																						<s:url var="StateChangeURL" namespace="/emp"
+																							action="ChangeState">
+																							<s:param name="id" value="%{id}"></s:param>
+																						</s:url>
+																						<s:a href="%{#StateChangeURL}"
+																							cssClass="btn btn-xs btn-success" >
+																							<span >Set state</span>
+																						</s:a>
 
 																						<button type="button"
 																							class="btn btn-primary btn-xs">
@@ -274,13 +290,124 @@
 													</div>
 													<!-- Tab two content  -->
 													<div role="tabpanel" class="tab-pane fade"
-														id="tab_content2" aria-labelledby="profile-tab"></div>
+														id="tab_content2" aria-labelledby="profile-tab">
+														<!-- Pager -->
+
+														<!--  Pager  -->
+													</div>
 
 													<!-- Tab three content  -->
 													<div role="tabpanel" class="tab-pane fade"
 														id="tab_content3" aria-labelledby="profile-tab">
 														<!-- Pager -->
+														<div class="row">
+															<div class="col-md-12 col-sm-12 col-xs-12">
+																<div class="x_panel">
+																	<div class="x_title">
+																		<h2>
+																			Form Design <small>different form elements</small>
+																		</h2>
+																		<ul class="nav navbar-right panel_toolbox">
+																			<li><a class="collapse-link"><i
+																					class="fa fa-chevron-up"></i></a></li>
+																			<li class="dropdown"><a href="#"
+																				class="dropdown-toggle" data-toggle="dropdown"
+																				role="button" aria-expanded="false"><i
+																					class="fa fa-wrench"></i></a>
+																				<ul class="dropdown-menu" role="menu">
+																					<li><a href="#">Settings 1</a></li>
+																					<li><a href="#">Settings 2</a></li>
+																				</ul></li>
+																			<li><a class="close-link"><i
+																					class="fa fa-close"></i></a></li>
+																		</ul>
+																		<div class="clearfix"></div>
+																	</div>
+																	<div class="x_content">
+																		<br />
+																		<form id="demo-form2" data-parsley-validate
+																			class="form-horizontal form-label-left">
 
+																			<div class="form-group">
+																				<label
+																					class="control-label col-md-3 col-sm-3 col-xs-12"
+																					for="first-name">First Name <span
+																					class="required">*</span>
+																				</label>
+																				<div class="col-md-6 col-sm-6 col-xs-12">
+																					<input type="text" id="first-name"
+																						required="required"
+																						class="form-control col-md-7 col-xs-12">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label
+																					class="control-label col-md-3 col-sm-3 col-xs-12"
+																					for="last-name">Last Name <span
+																					class="required">*</span>
+																				</label>
+																				<div class="col-md-6 col-sm-6 col-xs-12">
+																					<input type="text" id="last-name" name="last-name"
+																						required="required"
+																						class="form-control col-md-7 col-xs-12">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label for="middle-name"
+																					class="control-label col-md-3 col-sm-3 col-xs-12">Middle
+																					Name / Initial</label>
+																				<div class="col-md-6 col-sm-6 col-xs-12">
+																					<input id="middle-name"
+																						class="form-control col-md-7 col-xs-12"
+																						type="text" name="middle-name">
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label
+																					class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+																				<div class="col-md-6 col-sm-6 col-xs-12">
+																					<div id="gender" class="btn-group"
+																						data-toggle="buttons">
+																						<label class="btn btn-default"
+																							data-toggle-class="btn-primary"
+																							data-toggle-passive-class="btn-default">
+																							<input type="radio" name="gender" value="male">
+																							&nbsp; Male &nbsp;
+																						</label> <label class="btn btn-primary"
+																							data-toggle-class="btn-primary"
+																							data-toggle-passive-class="btn-default">
+																							<input type="radio" name="gender" value="female">
+																							Female
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="form-group">
+																				<label
+																					class="control-label col-md-3 col-sm-3 col-xs-12">Date
+																					Of Birth <span class="required">*</span>
+																				</label>
+																				<div class="col-md-6 col-sm-6 col-xs-12">
+																					<input id="birthday"
+																						class="date-picker form-control col-md-7 col-xs-12"
+																						required="required" type="text">
+																				</div>
+																			</div>
+																			<div class="ln_solid"></div>
+																			<div class="form-group">
+																				<div
+																					class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+																					<button class="btn btn-primary" type="button">Cancel</button>
+																					<button class="btn btn-primary" type="reset">Reset</button>
+																					<button type="submit" class="btn btn-success">Submit</button>
+																				</div>
+																			</div>
+
+																		</form>
+																	</div>
+																</div>
+															</div>
+														</div>
 														<!--  Pager  -->
 													</div>
 
@@ -290,7 +417,7 @@
 
 
 											<!--  Tab Panel-->
-											
+
 											<!-- pager -->
 
 

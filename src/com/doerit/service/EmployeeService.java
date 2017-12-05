@@ -24,4 +24,8 @@ public class EmployeeService {
 		
 		return p;
 	}
+	
+	public int stateChange(Patient patient) {
+		return employeeMapper.insert(patient);
+	}
 }
