@@ -1099,7 +1099,7 @@ legend {
 .demo-placeholder {
     height: 280px
 }
-.profile_details:nth-child(3n) {
+ .profile_details:nth-child(3n) {
     clear: both
 }
 .profile_details .profile_view {
@@ -1109,7 +1109,7 @@ legend {
 }
 .profile_details .profile_view .divider {
     border-top: 1px solid #e5e5e5;
-    padding-top: 5px;
+    padding-top: 10px;
     margin-top: 5px
 }
 .profile_details .profile_view .ratings {
@@ -1121,7 +1121,7 @@ legend {
     border-top: 1px solid #E6E9ED
 }
 .profile_details .profile_view .left {
-    margin-top: 20px
+    margin-top: 5px
 }
 .profile_details .profile_view .left p {
     margin-bottom: 3px

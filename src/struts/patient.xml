@@ -8,6 +8,10 @@
 
 	<package name="patient" namespace="/patient" extends="json-default, authorized">
 	
+		<action name="ListGetForAdmin" class="com.doerit.action.employee.EmployeeAction" method="viewAll">
+			<result name="success">/WEB-INF/content/admin_page/admin_dashboard.jsp</result>
+		</action>
+	
 		<action name="registration-form" class="com.doerit.action.patient.PatientAction" method="registrationForm">
 			<result name="success">/WEB-INF/content/patient/form.jsp</result>
 		</action>

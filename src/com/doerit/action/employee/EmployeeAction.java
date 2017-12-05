@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doerit.action.AbstractDownloadManamentAction;
-import com.doerit.model.Patient;
+import com.doerit.model.Employee;
 import com.doerit.service.DistrictService;
 import com.doerit.service.EmployeeService;
 import com.doerit.util.State;
@@ -18,12 +18,12 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	@Autowired DistrictService districtService;
 	
 	
-	private Patient Employee;
-	private List<Patient> Employees;
+	private Employee Employee;
+	private List<Employee> Employees;
 	
 	
 	public String viewAll() {
-		
+		System.out.println("OK");
 		System.out.println("i'm here");
 		try {
 			beforeAction();
@@ -36,18 +36,26 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 		}
 		return SUCCESS;
 	}
-	
-	public Patient getEmployee() {
+
+
+	public Employee getEmployee() {
 		return Employee;
 	}
-	public void setEmployee(Patient employee) {
+
+
+	public void setEmployee(Employee employee) {
 		Employee = employee;
 	}
-	public List<Patient> getEmployees() {
+
+
+	public List<Employee> getEmployees() {
 		return Employees;
 	}
-	public void setEmployees(List<Patient> employees) {
+
+
+	public void setEmployees(List<Employee> employees) {
 		Employees = employees;
 	}
-
+	
+	
 }

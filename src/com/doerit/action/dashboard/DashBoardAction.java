@@ -24,12 +24,13 @@ public class DashBoardAction extends AbstractManagementAction {
 			isPatientAuthorizer = authorizeVisits();
 			
 			if (userRole.equals("EMPLOYEE") && isPatientAuthorizer) {
-				System.out.println("auth emp login");
+				
 				authEmployeeDashboard();
 				if(isAdmin()) {
+					System.out.println("Addmin signin");
 					return "ADMIN";
 				}
-				
+				System.out.println("auth emp login");
 				return "AUTHORIZED "+userRole;
 				
 			} else if( userRole.equals("EMPLOYEE") ) {
