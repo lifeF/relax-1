@@ -20,9 +20,7 @@ public interface EmployeeMapper {
 	
 	int countByExample1(EmployeeExample example);
     int deleteByExample1(EmployeeExample example);
-    int deleteByPrimaryKey1(String id);
-    int insert(Patient record);
-    int insertSelective(Patient record);
+    
 	
 	
 	
@@ -129,4 +127,8 @@ public interface EmployeeMapper {
      * @mbggenerated Sun Jul 09 08:24:40 IST 2017
      */
     int updateByPrimaryKey(Employee record);
+    
+    @Select("SELECT count(0) " + 
+    		" FROM tbl_employee c ")
+	int StateChange(String id,boolean state);
 }

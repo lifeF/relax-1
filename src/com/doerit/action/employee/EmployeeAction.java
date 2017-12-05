@@ -22,9 +22,22 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	private List<Employee> Employees;
 	
 	public String dashboard() {
+		
 		return SUCCESS;
+		
 	}
 	public String ChangeStateByID() {
+		System.out.println("OK");
+		System.out.println("i'm here");
+		try {
+			beforeAction();
+			pager = EmployeeService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());
+			pager = setActionContext(pager);
+		} catch (Exception e) {
+			addActionError("Exception occur");
+			//logger
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 	

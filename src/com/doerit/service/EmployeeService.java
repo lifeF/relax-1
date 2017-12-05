@@ -25,7 +25,8 @@ public class EmployeeService {
 		return p;
 	}
 	
-	public int stateChange(Patient patient) {
-		return employeeMapper.insert(patient);
+	public int stateChange(String id, boolean State) {
+		
+		return employeeMapper.StateChange(id,!State);
 	}
 }

@@ -248,10 +248,12 @@
 																						<s:url var="StateChangeURL" namespace="/emp"
 																							action="ChangeState">
 																							<s:param name="id" value="%{id}"></s:param>
+																							<s:param name="state_new" value="%{!state}"></s:param>
+
 																						</s:url>
 																						<s:a href="%{#StateChangeURL}"
-																							cssClass="btn btn-xs btn-success" >
-																							<span >Set state</span>
+																							cssClass="btn btn-xs btn-success">
+																							<span>Set state</span>
 																						</s:a>
 
 																						<button type="button"
