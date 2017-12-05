@@ -36,41 +36,18 @@
 					</div>
 					<div class="clearfix"></div>
 
-					<!-- menu profile quick info -->
-					<div class="profile clearfix">
-						<div class="profile_pic">
-							<img src="images/img.jpg" alt="..."
-								class="img-circle profile_img">
-						</div>
-						<div class="profile_info">
-							<span>Welcome,</span>
-							<h2>
-								<s:property value="%{#session.SESSION_USER.name}" />
-							</h2>
-						</div>
-					</div>
-					<!-- /menu profile quick info -->
+					<!-- menu profile  -->
+					<s:include value="/WEB-INF/content/common/manu_profile.jsp"></s:include>
+					<!-- /menu profile -->
 
 					<br />
 
-					
+					<!-- sidebar menu -->
+					<s:include value="/WEB-INF/content/common/side-bar-admin.jsp"></s:include>
+					<!-- /sidebar menu -->
 
 					<!-- /menu footer buttons -->
-					<div class="sidebar-footer hidden-small">
-						<a data-toggle="tooltip" data-placement="top" title="Settings">
-							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-						</a> <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-							<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-						</a> <a data-toggle="tooltip" data-placement="top" title="Lock"> <span
-							class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-						</a>
-
-						<s:url var="signOutUrl" namespace="/" action="/sign-out.html"></s:url>
-						<s:a data-toggle="tooltip" data-placement="top" title="Logout"
-							href="%{#signOutUrl}">
-							<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-						</s:a>
-					</div>
+					<s:include value="/WEB-INF/content/common/manu_footer.jsp"></s:include>
 					<!-- /menu footer buttons -->
 				</div>
 			</div>
@@ -97,6 +74,9 @@
 										<div class="col-md-12 col-sm-12 col-xs-12 ">
 
 
+
+
+											<!-- pager -->
 											<!-- Tab panel  -->
 
 											<div class="" role="tabpanel "
@@ -127,7 +107,7 @@
 															aria-expanded="false">
 																<div style="padding: 6px 20px 6px 20px;">
 																	<input type="radio" name="gender" value="female">
-																	 Employee
+																	Employee
 																</div>
 														</a>
 														</label>
@@ -138,13 +118,13 @@
 															style="padding: 0px;"> <a href="#tab_content3"
 															role="tab" id="tab3" data-toggle="tab"
 															aria-expanded="false">
-																
-																	<div style="padding: 6px 20px 6px 20px;">
+
+																<div style="padding: 6px 20px 6px 20px;">
 																	<input type="radio" name="gender" value="male">
 																	Add Employee
-																	</div>
-																
-																
+																</div>
+
+
 														</a>
 														</label>
 														<!-- Tab 04  -->
@@ -160,7 +140,7 @@
 																</div>
 														</a>
 														</label>
-														
+
 
 													</div>
 												</div>
@@ -175,7 +155,7 @@
 														<!-- tab title  -->
 														<p class="lead center">ACTIVE EMPLOYEE</p>
 
-														
+
 														<!--pager  -->
 														<s:actionerror cssClass="errorMessage" />
 
@@ -219,19 +199,17 @@
 																								style="font-size: 10px;"> <s:property
 																										value="%{userRole}" />
 																							</span></li>
-																							<li><i class="fa fa-phone"></i> <span style="font-size: 10px;"> Phone #: +94321324324</span>
-																							</li>
+																							<li><i class="fa fa-phone"></i> <span
+																								style="font-size: 10px;"> Phone #:
+																									+94321324324</span></li>
 
 																							<li>
 																								<ul class="list-inline prod_color">
-																									<li>
-																										<s:if test="%{status == 1}">
+																									<li><s:if test="%{status == 1}">
 																											<div class="color bg-green"></div>
-																										</s:if>
-																										<s:else>
+																										</s:if> <s:else>
 																											<div class="color bg-red"></div>
-																										</s:else>
-																									</li>
+																										</s:else></li>
 
 																								</ul>
 
@@ -241,7 +219,7 @@
 																					</div>
 
 																					<div class="right col-xs-4 text-center  ">
-																						
+
 																						<img src="./images/img_male.jpg" alt=""
 																							class="img-circle img-responsive s">
 
@@ -288,23 +266,21 @@
 														<s:else>
 															<div class="bg-info text-white">No Employee found</div>
 														</s:else>
-														
+
 														<!--pager  -->
-														
+
 
 
 													</div>
 													<!-- Tab two content  -->
 													<div role="tabpanel" class="tab-pane fade"
-														id="tab_content2" aria-labelledby="profile-tab">
-														
-													</div>
+														id="tab_content2" aria-labelledby="profile-tab"></div>
 
 													<!-- Tab three content  -->
 													<div role="tabpanel" class="tab-pane fade"
 														id="tab_content3" aria-labelledby="profile-tab">
 														<!-- Pager -->
-														
+
 														<!--  Pager  -->
 													</div>
 
@@ -314,9 +290,6 @@
 
 
 											<!--  Tab Panel-->
-
-											<!-- pager -->
-
 
 											<!-- pager -->
 
