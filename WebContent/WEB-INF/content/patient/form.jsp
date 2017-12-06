@@ -113,6 +113,7 @@
 			<div class="right_col" role="main">
 			
 				<s:include value="/WEB-INF/content/patient/header.jsp"></s:include>
+				<div class="x_panel">
 				<h4>Patient Registration</h4>
 				<hr>
 
@@ -330,7 +331,9 @@
 					</div>
 
 				</s:form>
-
+				
+				</div>
+				
 			</div>
 			<!-- /page content -->
 				

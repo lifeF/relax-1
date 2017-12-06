@@ -20,13 +20,15 @@ public interface EmployeeMapper {
 	
 	int countByExample1(EmployeeExample example);
     int deleteByExample1(EmployeeExample example);
+//    int updateByPrimaryKeySelective(EmployeeExample record);
+    
     
 	
 	
 	
 	
 	
-	@Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,c.STATUS" + 
+	@Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
     		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
     		" ORDER BY c.ID  " +
     		" LIMIT #{pager.start}, #{pager.limit}")
@@ -128,7 +130,5 @@ public interface EmployeeMapper {
      */
     int updateByPrimaryKey(Employee record);
     
-    @Select("SELECT count(0) " + 
-    		" FROM tbl_employee c ")
-	int StateChange(String id,boolean state);
+    
 }

@@ -63,7 +63,7 @@
 							<div class="col-md-12 col-sm-6 col-xs-12" style="padding: 10px;">
 								<s:url var="patientAddUrl" namespace="/patient"
 									action="visits.html"></s:url>
-								<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
+								<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue" style="color:Black;" >
 									<i class="fa fa-user-plus" style="padding: 10px;"></i>Add Visit
 								</s:a>
 							</div>
@@ -74,14 +74,14 @@
 							<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
 								<s:url var="patientAddUrl" namespace="/patient"
 									action="registration-form.html"></s:url>
-								<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue">
+								<s:a href="%{#patientAddUrl}" cssClass="mainSelect blue" style="color:Black;">
 									<i class="fa fa-user-plus" style="padding: 10px;"></i>Registration Desk
 						</s:a>
 							</div>
-							<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;">
+							<div class="col-md-6 col-sm-6 col-xs-12" style="padding: 10px;" >
 								<s:url var="patientListUrl" namespace="/patient"
 									action="list.html"></s:url>
-								<s:a href="%{#patientListUrl}" cssClass="mainSelect green">
+								<s:a href="%{#patientListUrl}" cssClass="mainSelect green" style="color:grey;" >
 									<i class="glyphicon glyphicon-edit" style="padding: 10px;"></i>Patients' Modifications
 						</s:a>
 							</div>

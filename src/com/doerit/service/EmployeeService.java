@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.doerit.dao.EmployeeMapper;
 import com.doerit.model.Employee;
+import com.doerit.model.Patient;
 import com.doerit.util.Pager;
 
 @Service
@@ -25,8 +26,7 @@ public class EmployeeService {
 		return p;
 	}
 	
-	public int stateChange(String id, boolean State) {
-		
-		return employeeMapper.StateChange(id,!State);
+	public int update(Employee employee) {
+		return employeeMapper.updateByPrimaryKeySelective(employee);
 	}
 }

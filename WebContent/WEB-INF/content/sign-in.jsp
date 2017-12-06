@@ -84,8 +84,8 @@
 
                 <div>
 
-                  <h1><i class="fa fa-heartbeat" aria-hidden="true"></i> Faculty of Dental Science</h1>
-                  <p>©2017 All Rights Reserved. Faculty of Dental Science. Privacy and Terms</p>
+                  <h1><i class="fa fa-heartbeat" aria-hidden="true"></i> Faculty of Dental Sciences</h1>
+                  <p>©2017 All Rights Reserved. Faculty of Dental Sciences. Privacy and Terms</p>
                 </div>
               </div>
             </s:form>

@@ -91,6 +91,7 @@
 	<include file="./struts/report.xml" />
 	<include file="./struts/patient-guardian.xml" />
 	<include file="./struts/employee.xml" />
+	<include file="./struts/Diagnosic.xml" />
 	
 </struts>
 

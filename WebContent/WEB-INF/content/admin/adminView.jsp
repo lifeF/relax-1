@@ -159,12 +159,18 @@
 												<hr>
 
 												<!--Tab content  -->
-												<div id="myTabContent" class="tab-content col-xs-12 ">
+												<div id="myTabContent"
+													class="tab-content col-xs-12 profile_details">
 													<!-- Tab one content  -->
 													<div role="tabpanel" class="tab-pane fade  in active"
 														id="tab_content1" aria-labelledby="home-tab">
 														<!-- tab title  -->
 														<p class="lead center">ACTIVE EMPLOYEE</p>
+
+														<!-- Search bar-->
+														<div class="row"></div>
+
+														<!-- Search bar-->
 
 
 														<!--pager  -->
@@ -178,8 +184,7 @@
 																<s:iterator value="pager.list" status="rowIndex">
 
 																	<!-- User profile -->
-																	<div
-																		class="col-md-4 col-sm-4 col-xs-12 profile_details ">
+																	<div class="col-md-4 col-sm-4 col-xs-12">
 																		<div class="well profile_view ">
 
 																			<div class="col-xs-12">
@@ -218,9 +223,14 @@
 																							<li>
 																								<ul class="list-inline prod_color">
 																									<li><s:if test="%{status == 1}">
-																											<div class="color bg-green"></div>
+																											<div style="color: #5daf34">
+																												<i class="fa fa-circle "> </i> active
+																											</div>
+
 																										</s:if> <s:else>
-																											<div class="color bg-red"></div>
+																											<div style="color: #ef674c">
+																												<i class="fa fa-circle "> </i> inactive
+																											</div>
 																										</s:else></li>
 
 																								</ul>
@@ -244,20 +254,21 @@
 
 																				<div class="col-xs-12 col-sm-7 emphasis">
 																					<div class="row">
+																						
+																							<s:url var="StateChangeURL" namespace="/emp"
+																								action="ChangeState">
+																								<s:param name="id" value="%{id}"></s:param>
+																								<s:param name="state" value="%{status}"></s:param>
 
-																						<s:url var="StateChangeURL" namespace="/emp"
-																							action="ChangeState">
-																							<s:param name="id" value="%{id}"></s:param>
-																							<s:param name="state_new" value="%{!state}"></s:param>
-
-																						</s:url>
-																						<s:a href="%{#StateChangeURL}"
-																							cssClass="btn btn-xs btn-success">
-																							<span>Set state</span>
-																						</s:a>
+																							</s:url>
+																							<s:a href="%{#StateChangeURL}"
+																								cssClass="btn btn-xs btn-success">
+																								<span>Set state</span>
+																							</s:a>
+																						
 
 																						<button type="button"
-																							class="btn btn-primary btn-xs">
+																							class="btn btn-primary btn-xs ">
 																							<i class="fa fa-user"> </i> View Profile
 																						</button>
 
@@ -271,6 +282,7 @@
 																		</div>
 																	</div>
 																	<!--User   profile -->
+
 
 
 																</s:iterator>
@@ -292,7 +304,7 @@
 													</div>
 													<!-- Tab two content  -->
 													<div role="tabpanel" class="tab-pane fade"
-														id="tab_content2" aria-labelledby="profile-tab">
+														id="tab_content2" aria-labelledby="inactive employee">
 														<!-- Pager -->
 
 														<!--  Pager  -->

@@ -25,7 +25,10 @@
 			<result name="success">/WEB-INF/content/admin/adminDashboard.jsp</result>
 		</action>
 		
-		
+		<action name="Diagnostic" class="com.doerit.action.diagnostic.diagnosticAction"
+			method="open">
+			<result name="success">/WEB-INF/content/patient/Diaganotic/Diaganostic.jsp</result>
+		</action>
 		
 		
 				

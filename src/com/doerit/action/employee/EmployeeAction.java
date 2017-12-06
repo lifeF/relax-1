@@ -18,6 +18,19 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	@Autowired DistrictService districtService;
 	
 	
+	private byte state;
+	private Employee E1;
+	
+
+
+	public byte getState() {
+		return state;
+	}
+	public void setState(byte state) {
+		this.state = state;
+	}
+
+
 	private Employee Employee;
 	private List<Employee> Employees;
 	
@@ -27,8 +40,18 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 		
 	}
 	public String ChangeStateByID() {
-		System.out.println("OK");
-		System.out.println("i'm here");
+		System.out.println("Update"+ this.state);
+		E1=
+		if (this.state==1){
+			this.state=0;
+		}
+		else {
+			this.state=1;
+		}
+		System.out.println("Update"+ this.state);
+		E1.setStatus(this.state);
+		EmployeeService.update(E1);
+		
 		try {
 			beforeAction();
 			pager = EmployeeService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());
@@ -74,6 +97,12 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 
 	public void setEmployees(List<Employee> employees) {
 		Employees = employees;
+	}
+	public Employee getE1() {
+		return E1;
+	}
+	public void setE1(Employee e1) {
+		E1 = e1;
 	}
 	
 	
