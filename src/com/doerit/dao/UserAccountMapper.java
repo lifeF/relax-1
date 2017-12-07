@@ -27,4 +27,9 @@ public interface UserAccountMapper {
     @ResultMap("BaseResultMap")
 	UserAccount findByEmailPasswordAndState(@Param("userName")String userName, 
 			@Param("password")String password, @Param("status")byte databaseValue);
+    
+    @Select("SELECT * "
+    		+ "FROM tbl_user_account WHERE RELATION_ID=#{USER_EMPLOYEE_ID}")
+    @ResultMap("BaseResultMap")
+	UserAccount viewByID(@Param("USER_EMPLOYEE_ID")String EmployeeID);
 }

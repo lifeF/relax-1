@@ -27,7 +27,7 @@
 		
 		<action name="Diagnostic" class="com.doerit.action.diagnostic.diagnosticAction"
 			method="open">
-			<result name="success">/WEB-INF/content/patient/Diaganotic/Diaganostic.jsp</result>
+			<result name="success">/WEB-INF/content/patient/diagnostic/Diaganostic.jsp</result>
 		</action>
 		
 		

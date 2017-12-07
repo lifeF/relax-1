@@ -21,4 +21,12 @@ public class UserAccountService {
 		return userAccountMapper.findByEmailPasswordAndState(email, password, State.ACTIVE.getDatabaseValue());
 	}
 	
+	public UserAccount viewByID(String EmployeeID) {
+		return userAccountMapper.viewByID(EmployeeID);
+	}
+	
+	public int UPDATE(UserAccount UserAccount) {
+		return userAccountMapper.updateByPrimaryKey(UserAccount);
+	}
+	
 }

@@ -13,7 +13,7 @@
 			<li>
 				<s:url var="dashboardUrl" action="ListGetForAdmin.html" namespace="/emp"></s:url>
 				<s:a href="%{#dashboardUrl}">
-					<i class="fa fa-address-card"></i>Employee Setting
+					<i class="fa fa-address-card"></i> Control access of Employee
 				</s:a>
 			</li>
 			

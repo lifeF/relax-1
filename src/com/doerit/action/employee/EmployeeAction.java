@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.doerit.action.AbstractDownloadManamentAction;
 import com.doerit.model.Employee;
+import com.doerit.model.UserAccount;
 import com.doerit.service.DistrictService;
 import com.doerit.service.EmployeeService;
+import com.doerit.service.UserAccountService;
 import com.doerit.util.State;
 
 public class EmployeeAction  extends AbstractDownloadManamentAction{
@@ -15,11 +17,13 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	private static final long serialVersionUID = 1L;
 
 	@Autowired EmployeeService EmployeeService;
+	@Autowired UserAccountService UserAccountService;
 	@Autowired DistrictService districtService;
 	
 	
 	private byte state;
-	private Employee E1;
+	private UserAccount UserAccount;
+	private String EmployeeID;
 	
 
 
@@ -40,17 +44,18 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 		
 	}
 	public String ChangeStateByID() {
-		System.out.println("Update"+ this.state);
-		E1=
+		System.out.println("Update"+ this.state +"and  Employee ID :"+getEmployeeID());
+		
+		UserAccount = UserAccountService.viewByID(getEmployeeID());
+	
 		if (this.state==1){
 			this.state=0;
 		}
 		else {
-			this.state=1;
+			this.state=1;		
 		}
-		System.out.println("Update"+ this.state);
-		E1.setStatus(this.state);
-		EmployeeService.update(E1);
+		UserAccount.setStatus(this.state);
+		UserAccountService.UPDATE(UserAccount);
 		
 		try {
 			beforeAction();
@@ -58,7 +63,7 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 			pager = setActionContext(pager);
 		} catch (Exception e) {
 			addActionError("Exception occur");
-			//logger
+			
 			e.printStackTrace();
 		}
 		return SUCCESS;
@@ -98,11 +103,18 @@ public class EmployeeAction  extends AbstractDownloadManamentAction{
 	public void setEmployees(List<Employee> employees) {
 		Employees = employees;
 	}
-	public Employee getE1() {
-		return E1;
+	
+	public String getEmployeeID() {
+		return EmployeeID;
 	}
-	public void setE1(Employee e1) {
-		E1 = e1;
+	public void setEmployeeID(String employeeID) {
+		EmployeeID = employeeID;
+	}
+	public UserAccount getUserAccount() {
+		return UserAccount;
+	}
+	public void setUserAccount(UserAccount userAccount) {
+		UserAccount = userAccount;
 	}
 	
 	

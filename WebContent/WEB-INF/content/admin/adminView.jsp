@@ -6,6 +6,7 @@
 <html lang="en">
 
 <head>
+
 <link
 	href="<s:url value="/css/dashboard-component.css" includeParams="none"/>"
 	rel="stylesheet" type="text/css">
@@ -103,7 +104,7 @@
 															id="tab1" role="tab" data-toggle="tab"
 															aria-expanded="true">
 																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" checked name="gender" value="male"
+																	<input type="radio" checked name="TabButton" value="Button01"
 																		checked="checked"> Active Employee
 																</div>
 
@@ -117,7 +118,7 @@
 															role="tab" id="tab2" data-toggle="tab"
 															aria-expanded="false">
 																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" name="gender" value="female">
+																	<input type="radio" name="TabButton" value="Button02">
 																	Employee
 																</div>
 														</a>
@@ -131,7 +132,7 @@
 															aria-expanded="false">
 
 																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" name="gender" value="male">
+																	<input type="radio" name="TabButton" value="TabButton02">
 																	Add Employee
 																</div>
 
@@ -146,7 +147,7 @@
 															role="tab" id="profile-tab2" data-toggle="tab"
 															aria-expanded="false">
 																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" name="gender" value="male">
+																	<input type="radio" name="TabButton" value="Button03">
 																	Help
 																</div>
 														</a>
@@ -257,7 +258,7 @@
 																						
 																							<s:url var="StateChangeURL" namespace="/emp"
 																								action="ChangeState">
-																								<s:param name="id" value="%{id}"></s:param>
+																								<s:param name="EmployeeID" value="%{id}"></s:param>
 																								<s:param name="state" value="%{status}"></s:param>
 
 																							</s:url>

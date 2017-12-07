@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.doerit.dao.EmployeeMapper;
 import com.doerit.model.Employee;
-import com.doerit.model.Patient;
 import com.doerit.util.Pager;
 
 @Service

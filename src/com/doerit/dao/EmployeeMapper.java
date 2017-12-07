@@ -2,7 +2,7 @@ package com.doerit.dao;
 
 import com.doerit.model.Employee;
 import com.doerit.model.EmployeeExample;
-import com.doerit.model.Patient;
+
 
 import com.doerit.model.fullEmployeeDetails;
 import com.doerit.util.Pager;
@@ -22,12 +22,7 @@ public interface EmployeeMapper {
     int deleteByExample1(EmployeeExample example);
 //    int updateByPrimaryKeySelective(EmployeeExample record);
     
-    
-	
-	
-	
-	
-	
+  
 	@Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
     		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
     		" ORDER BY c.ID  " +
@@ -128,6 +123,7 @@ public interface EmployeeMapper {
      *
      * @mbggenerated Sun Jul 09 08:24:40 IST 2017
      */
+    
     int updateByPrimaryKey(Employee record);
     
     
