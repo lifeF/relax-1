@@ -104,41 +104,13 @@
 															id="tab1" role="tab" data-toggle="tab"
 															aria-expanded="true">
 																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" checked name="TabButton" value="Button01"
-																		checked="checked"> Active Employee
+																	<input type="radio" checked name="TabButton"
+																		value="Button01" checked="checked"> Employee
 																</div>
 
 														</a>
 														</label>
-														<!-- Tab 02  -->
-														<label class="btn btn-default"
-															data-toggle-class="btn-primary"
-															data-toggle-passive-class="btn-default"
-															style="padding: 0px;"> <a href="#tab_content2"
-															role="tab" id="tab2" data-toggle="tab"
-															aria-expanded="false">
-																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" name="TabButton" value="Button02">
-																	Employee
-																</div>
-														</a>
-														</label>
-														<!-- Tab 03  -->
-														<label class="btn btn-default"
-															data-toggle-class="btn-primary"
-															data-toggle-passive-class="btn-default"
-															style="padding: 0px;"> <a href="#tab_content3"
-															role="tab" id="tab3" data-toggle="tab"
-															aria-expanded="false">
 
-																<div style="padding: 6px 20px 6px 20px;">
-																	<input type="radio" name="TabButton" value="TabButton02">
-																	Add Employee
-																</div>
-
-
-														</a>
-														</label>
 														<!-- Tab 04  -->
 														<label class="btn btn-default"
 															data-toggle-class="btn-primary"
@@ -166,14 +138,56 @@
 													<div role="tabpanel" class="tab-pane fade  in active"
 														id="tab_content1" aria-labelledby="home-tab">
 														<!-- tab title  -->
-														<p class="lead center">ACTIVE EMPLOYEE</p>
+														<div style="display: inblock;">
+															<div class="row">
+																<div class="col-sm-3 col-xs-12">
+																	<p class="lead center">ACTIVE EMPLOYEE</p>
+																</div>
+																<div class="col-sm-3 col-xs-12">
+																	<button type="button" class="btn btn-default btn-md">Add New Employee</button>
+																</div>
+																<div class="col-md-4 col-md-offset-1 pull-right">
+																	<!-- Search Bar -->
+																	<s:form namespace="/emp" action="ListGetForAdmin.html"
+																		id="EmployeeSearchForm" method="get">
+																		<div class="input-group">
 
-														<!-- Search bar-->
-														<div class="row"></div>
+																			<div class="input-group-btn search-panel">
+																				<button type="button"
+																					class="btn btn-default dropdown-toggle"
+																					data-toggle="dropdown">
+																					<span id="search_concept">Search By </span> <span
+																						class="caret"></span>
+																				</button>
+																				<ul class="dropdown-menu" role="menu">
+																					<li><a href="#id">ID</a></li>
+																					<li><a href="#surname">Surname</a></li>
+																					<li><a href="#firstname">First name</a></li>
+																					<li><a href="#nic">NIC</a></li>
 
-														<!-- Search bar-->
+																					<li class="divider"></li>
+																					<li><a href="#mobile">Mobile</a></li>
+																					<li><a href="#email">Email</a></li>
+																				</ul>
+																			</div>
+																			<input type="hidden" name="searchKey" value="serial"
+																				id="search_param"> <input type="text"
+																				class="form-control" name="searchWord"
+																				placeholder="default is Employee ID" autofocus> <span
+																				class="input-group-btn"> <s:submit
+																					cssClass="btn btn-default" type="button">
+																					<span class="glyphicon glyphicon-search"></span>
+																				</s:submit>
+																			</span>
+																		</div>
+																	</s:form>
+																	<!-- Search Bar -->
+																</div>
 
-
+															</div>
+														<hr>
+														</div>
+														
 														<!--pager  -->
 														<s:actionerror cssClass="errorMessage" />
 
@@ -255,23 +269,38 @@
 
 																				<div class="col-xs-12 col-sm-7 emphasis">
 																					<div class="row">
-																						
-																							<s:url var="StateChangeURL" namespace="/emp"
-																								action="ChangeState">
-																								<s:param name="EmployeeID" value="%{id}"></s:param>
-																								<s:param name="state" value="%{status}"></s:param>
 
-																							</s:url>
+																						<s:url var="StateChangeURL" namespace="/emp"
+																							action="ListGetForAdmin">
+																							<s:param name="EmployeeID" value="%{id}"></s:param>
+																							<s:param name="state" value="%{status}"></s:param>
+
+																						</s:url>
+
+																						<s:if test="%{userRole==ADMIN}">
+
+																							<s:a href="%{#StateChangeURL}"
+																								cssClass="btn btn-xs btn-success disabled">
+																								<span>Set state</span>
+																							</s:a>
+																						</s:if>
+																						<s:else>
 																							<s:a href="%{#StateChangeURL}"
 																								cssClass="btn btn-xs btn-success">
 																								<span>Set state</span>
 																							</s:a>
-																						
+																						</s:else>
+
+
 
 																						<button type="button"
-																							class="btn btn-primary btn-xs ">
+																							class="btn btn-primary btn-xs "
+																							data-toggle="modal"
+																							data-target=".bs-example-modal-sm">
 																							<i class="fa fa-user"> </i> View Profile
 																						</button>
+
+
 
 																					</div>
 
@@ -288,6 +317,33 @@
 
 																</s:iterator>
 															</div>
+															<!-- model -->
+
+
+															<div class="modal fade bs-example-modal-sm" tabindex="-1"
+																role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-sm">
+																	<div class="modal-content">
+
+																		<div class="modal-header">
+																			<button type="button" class="close"
+																				data-dismiss="modal" aria-label="Close">
+																				<span aria-hidden="true">×</span>
+																			</button>
+																			<h4 class="modal-title" id="myModalLabel2">Profile
+																				Detail</h4>
+																		</div>
+																		<div class="modal-body">
+																			<h4></h4>
+																			<p></p>
+																		</div>
+																		<div class="modal-footer center">Employee of
+																			Dental Hospital</div>
+
+																	</div>
+																</div>
+															</div>
+															<!-- model -->
 
 
 															<div class="text-center bottom">
@@ -299,130 +355,13 @@
 														</s:else>
 
 														<!--pager  -->
-
-
-
-													</div>
-													<!-- Tab two content  -->
-													<div role="tabpanel" class="tab-pane fade"
-														id="tab_content2" aria-labelledby="inactive employee">
-														<!-- Pager -->
-
-														<!--  Pager  -->
 													</div>
 
 													<!-- Tab three content  -->
 													<div role="tabpanel" class="tab-pane fade"
 														id="tab_content3" aria-labelledby="profile-tab">
 														<!-- Pager -->
-														<div class="row">
-															<div class="col-md-12 col-sm-12 col-xs-12">
-																<div class="x_panel">
-																	<div class="x_title">
-																		<h2>
-																			Form Design <small>different form elements</small>
-																		</h2>
-																		<ul class="nav navbar-right panel_toolbox">
-																			<li><a class="collapse-link"><i
-																					class="fa fa-chevron-up"></i></a></li>
-																			<li class="dropdown"><a href="#"
-																				class="dropdown-toggle" data-toggle="dropdown"
-																				role="button" aria-expanded="false"><i
-																					class="fa fa-wrench"></i></a>
-																				<ul class="dropdown-menu" role="menu">
-																					<li><a href="#">Settings 1</a></li>
-																					<li><a href="#">Settings 2</a></li>
-																				</ul></li>
-																			<li><a class="close-link"><i
-																					class="fa fa-close"></i></a></li>
-																		</ul>
-																		<div class="clearfix"></div>
-																	</div>
-																	<div class="x_content">
-																		<br />
-																		<form id="demo-form2" data-parsley-validate
-																			class="form-horizontal form-label-left">
 
-																			<div class="form-group">
-																				<label
-																					class="control-label col-md-3 col-sm-3 col-xs-12"
-																					for="first-name">First Name <span
-																					class="required">*</span>
-																				</label>
-																				<div class="col-md-6 col-sm-6 col-xs-12">
-																					<input type="text" id="first-name"
-																						required="required"
-																						class="form-control col-md-7 col-xs-12">
-																				</div>
-																			</div>
-																			<div class="form-group">
-																				<label
-																					class="control-label col-md-3 col-sm-3 col-xs-12"
-																					for="last-name">Last Name <span
-																					class="required">*</span>
-																				</label>
-																				<div class="col-md-6 col-sm-6 col-xs-12">
-																					<input type="text" id="last-name" name="last-name"
-																						required="required"
-																						class="form-control col-md-7 col-xs-12">
-																				</div>
-																			</div>
-																			<div class="form-group">
-																				<label for="middle-name"
-																					class="control-label col-md-3 col-sm-3 col-xs-12">Middle
-																					Name / Initial</label>
-																				<div class="col-md-6 col-sm-6 col-xs-12">
-																					<input id="middle-name"
-																						class="form-control col-md-7 col-xs-12"
-																						type="text" name="middle-name">
-																				</div>
-																			</div>
-																			<div class="form-group">
-																				<label
-																					class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-																				<div class="col-md-6 col-sm-6 col-xs-12">
-																					<div id="gender" class="btn-group"
-																						data-toggle="buttons">
-																						<label class="btn btn-default"
-																							data-toggle-class="btn-primary"
-																							data-toggle-passive-class="btn-default">
-																							<input type="radio" name="gender" value="male">
-																							&nbsp; Male &nbsp;
-																						</label> <label class="btn btn-primary"
-																							data-toggle-class="btn-primary"
-																							data-toggle-passive-class="btn-default">
-																							<input type="radio" name="gender" value="female">
-																							Female
-																						</label>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="form-group">
-																				<label
-																					class="control-label col-md-3 col-sm-3 col-xs-12">Date
-																					Of Birth <span class="required">*</span>
-																				</label>
-																				<div class="col-md-6 col-sm-6 col-xs-12">
-																					<input id="birthday"
-																						class="date-picker form-control col-md-7 col-xs-12"
-																						required="required" type="text">
-																				</div>
-																			</div>
-																			<div class="ln_solid"></div>
-																			<div class="form-group">
-																				<div
-																					class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-																					<button class="btn btn-primary" type="button">Cancel</button>
-																					<button class="btn btn-primary" type="reset">Reset</button>
-																					<button type="submit" class="btn btn-success">Submit</button>
-																				</div>
-																			</div>
-
-																		</form>
-																	</div>
-																</div>
-															</div>
-														</div>
 														<!--  Pager  -->
 													</div>
 
