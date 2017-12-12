@@ -28,6 +28,9 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	private String EmployeeID;
 	private String searchKey;
 	private String searchWord;
+	private Employee Employee1;
+	private String userRole;
+	private String title;
 
 	public byte getState() {
 		return state;
@@ -77,7 +80,7 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 			try {
 				System.out.println(" List get From Again");
 				beforeAction();
-				pager = EmployeeService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());
+				pager = EmployeeService.search(pager,this.searchKey, this.searchWord);
 				pager = setActionContext(pager);
 			} catch (Exception e) {
 				addActionError("Exception occur");
@@ -95,6 +98,15 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	}
 	
 	public String RegisterEMP() {
+		return SUCCESS;
+	}
+	public String addEMP() {
+		Employee1=new Employee();
+		Employee1.setUserRole(this.userRole);
+		Employee1.setTitle(this.title);
+		System.out.print(Employee1.getUserRole());
+		System.out.print(Employee1.getTitle());
+		
 		return SUCCESS;
 	}
 
@@ -144,6 +156,30 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 
 	public void setSearchWord(String searchWord) {
 		this.searchWord = searchWord;
+	}
+
+	public Employee getEmployee1() {
+		return Employee1;
+	}
+
+	public void setEmployee1(Employee employee1) {
+		Employee1 = employee1;
+	}
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }

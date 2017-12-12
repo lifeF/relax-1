@@ -2,8 +2,7 @@ package com.doerit.dao;
 
 import com.doerit.model.Employee;
 import com.doerit.model.EmployeeExample;
-
-
+import com.doerit.model.Patient;
 import com.doerit.model.fullEmployeeDetails;
 import com.doerit.util.Pager;
 
@@ -126,5 +125,40 @@ public interface EmployeeMapper {
     
     int updateByPrimaryKey(Employee record);
     
+    @Select("SELECT c.* " + 
+    		" FROM tbl_employee  c " +  
+    		" WHERE c.ID LIKE #{searchValue}")
+    @ResultMap("BaseResultMap")
+    List<Employee> searchByID(@Param("searchValue")String likeSearchValue);
+    
+    @Select("SELECT c.* " + 
+    		" FROM tbl_employee  c " +  
+    		" WHERE c.SURNAME LIKE #{searchValue} ")
+    @ResultMap("BaseResultMap")
+    List<Employee> searchBySurname(@Param("searchValue")String likeSearchValue);
+    
+    @Select("SELECT c.* " + 
+    		" FROM tbl_employee  c " +  
+    		" WHERE c.FIRST_NAME LIKE #{searchValue} ")
+    @ResultMap("BaseResultMap")
+    List<Employee> searchByFirstName(@Param("searchValue")String likeSearchValue);
+
+    @Select("SELECT c.* " + 
+    		" FROM tbl_employee c " +  
+    		" WHERE c.NIC LIKE #{searchValue} ")
+    @ResultMap("BaseResultMap")
+    List<Employee> searchByNic(@Param("searchValue")String likeSearchValue);    
+    
+    @Select("SELECT c.* " + 
+    		" FROM tbl_employee c " +  
+    		" WHERE c.MOBILE LIKE #{searchValue} ")
+    @ResultMap("BaseResultMap")
+    List<Employee> searchByMobile(@Param("searchValue")String likeSearchValue);
+    
+    @Select("SELECT c.* " + 
+    		" FROM tbl_employee  c " +  
+    		" WHERE c.EMAIL LIKE #{searchValue} ")
+    @ResultMap("BaseResultMap")
+    List<Employee> searchByEmail(@Param("searchValue")String likeSearchValue);
     
 }
