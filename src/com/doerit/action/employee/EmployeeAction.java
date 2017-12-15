@@ -24,13 +24,31 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	DistrictService districtService;
 
 	private byte state;
+	
+	//to insert 
 	private UserAccount UserAccount;
+	
 	private String EmployeeID;
 	private String searchKey;
 	private String searchWord;
 	private Employee Employee1;
 	private String userRole;
 	private String title;
+	private String surname;
+	private String initials;
+	private String firstName;
+	private String nic;
+	private String designation;
+	private String department;
+	private String userName;
+	private String userPassword;
+	private String Error;
+	private String ok;
+	
+	
+	
+	
+	
 
 	public byte getState() {
 		return state;
@@ -101,13 +119,46 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 		return SUCCESS;
 	}
 	public String addEMP() {
+		try {
+		Error=null;
+		setOk(null);
 		Employee1=new Employee();
 		Employee1.setUserRole(this.userRole);
 		Employee1.setTitle(this.title);
-		System.out.print(Employee1.getUserRole());
-		System.out.print(Employee1.getTitle());
+		Employee1.setSurname(this.surname);		
+		Employee1.setInitials(this.initials);	
+		Employee1.setFirstName(this.firstName);	
+		Employee1.setNic(this.nic);	
+		Employee1.setDesignation(this.designation);	
+		Employee1.setId("KGS"+nic+"V");
+		Employee1.setDepartment(this.department);
+		
+		UserAccount=new UserAccount();
+		UserAccount.setId("UK233SDW"+this.id);
+		UserAccount.setUserName(this.userName);
+		UserAccount.setUserPassword(this.userPassword);
+		UserAccount.setRelationId("KGS"+nic+"V");
+		UserAccount.setCategoryRelationId("EMPLOYEE");
+		byte status=1;
+		UserAccount.setStatus(status);
+		
+		UserAccount U1=UserAccountService.viewByEmail(this.userName);
+		
+		if(U1!=null) {
+			Error ="already use this username";
+			return INPUT;
+		}
+		//UserAccountService.save(UserAccount);
+		EmployeeService.insert(Employee1);
+		
+		this.setOk("ok");
 		
 		return SUCCESS;
+		}
+		catch(Exception e) {
+			Error="Error occured";
+			return INPUT;
+		}
 	}
 
 	public Employee getEmployee() {
@@ -180,6 +231,86 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getInitials() {
+		return initials;
+	}
+
+	public void setInitials(String initials) {
+		this.initials = initials;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getNic() {
+		return nic;
+	}
+
+	public void setNic(String nic) {
+		this.nic = nic;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getError() {
+		return Error;
+	}
+
+	public void setError(String error) {
+		Error = error;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public String getOk() {
+		return ok;
+	}
+
+	public void setOk(String ok) {
+		this.ok = ok;
 	}
 
 }

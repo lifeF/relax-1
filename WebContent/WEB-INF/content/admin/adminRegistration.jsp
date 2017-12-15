@@ -68,7 +68,6 @@
 			<s:include value="/WEB-INF/content/common/top-bar.jsp"></s:include>
 			<!-- /top navigation -->
 
-
 			<!-- page content -->
 			<!-- /page content -->
 			<div class="right_col" role="main">
@@ -102,10 +101,45 @@
 														</div>
 														<div class="x_content">
 															<br />
+															<s:if test="%{Error!=null}">
+																<div
+																	class="alert alert-danger alert-dismissible fade in "
+																	role="alert" style="text-align: center;">
+																	<button type="button" class="close"
+																		data-dismiss="alert" aria-label="Close">
+																		<span aria-hidden="true">×</span>
+																	</button>
+
+																	<strong><s:property value="%{Error}" /></strong> .
+																	Please enter valid details.
+
+
+																</div>
+
+
+															</s:if>
+															<s:if test="%{ok!=null}">
+																<div
+																	class="alert alert-success alert-dismissible fade in "
+																	role="alert" style="text-align: center;">
+																	<button type="button" class="close"
+																		data-dismiss="alert" aria-label="Close">
+																		<span aria-hidden="true">×</span>
+																	</button>
+
+																	<strong>Employee details was added</strong> .
+																	
+
+
+																</div>
+
+
+															</s:if>
+
 															<s:form namespace="/emp" action="addEmp" method="get">
 																<div data-parsley-validate
 																	class="form-horizontal form-label-left">
-																	<div class="form-group">
+																	<%-- <div class="form-group">
 																		<label
 																			class="control-label col-md-3 col-sm-3 col-xs-12"
 																			for="first-name">Profile Picture (Optional)<span
@@ -115,7 +149,7 @@
 																			<input type="file" name="profile"
 																				class="form-control col-md-7 col-xs-12">
 																		</div>
-																	</div>
+																	</div> --%>
 
 																	<div class="form-group">
 																		<label
@@ -171,7 +205,7 @@
 																	</div>
 
 
-																	<%-- <div class="form-group">
+																	<div class="form-group">
 																		<label
 																			class="control-label col-md-3 col-sm-3 col-xs-12"
 																			for="surname">Surname<span class="required"></span>
@@ -197,12 +231,11 @@
 																			class="control-label col-md-3 col-sm-3 col-xs-12">First
 																			Name</label>
 																		<div class="col-md-6 col-sm-6 col-xs-12">
-																			<input id="middle-name"
-																				class="form-control col-md-7 col-xs-12" type="text"
-																				name="firstName">
+																			<input class="form-control col-md-7 col-xs-12"
+																				type="text" name="firstName">
 																		</div>
 																	</div>
-																	<div class="form-group">
+																	<!-- <div class="form-group">
 																		<label
 																			class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
 																		<div class="col-md-6 col-sm-6 col-xs-12">
@@ -226,16 +259,17 @@
 																				</label>
 																			</div>
 																		</div>
-																	</div>
+																	</div> -->
 																	<div class="form-group">
 																		<label
 																			class="control-label col-md-3 col-sm-3 col-xs-12">NIC<span
 																			class="required"></span>
 																		</label>
 																		<div class="col-md-6 col-sm-6 col-xs-12">
-																			<input id="birthday"
+																			<input name="nic"
 																				class="date-picker form-control col-md-7 col-xs-12"
 																				required="required" type="text">
+
 																		</div>
 																	</div>
 																	<div class="form-group">
@@ -290,7 +324,32 @@
 																			</select>
 																		</div>
 																	</div>
- --%>
+																	<div class="ln_solid"></div>
+																	<!-- User Account   -->
+																	<div class="form-group">
+																		<label
+																			class="control-label col-md-3 col-sm-3 col-xs-12">User
+																			Name<span class="required"></span>
+																		</label>
+																		<div class="col-md-6 col-sm-6 col-xs-12">
+																			<input name="userName"
+																				class="date-picker form-control col-md-7 col-xs-12"
+																				required="required" type="email">
+																		</div>
+																	</div>
+
+																	<div class="form-group">
+																		<label
+																			class="control-label col-md-3 col-sm-3 col-xs-12">Password<span
+																			class="required"></span>
+																		</label>
+																		<div class="col-md-6 col-sm-6 col-xs-12">
+																			<input name="userPassword"
+																				class="date-picker form-control col-md-7 col-xs-12"
+																				required="required" type="password">
+																		</div>
+																	</div>
+																	<!-- User Account   -->
 																	<div class="ln_solid"></div>
 																	<div class="form-group">
 																		<div

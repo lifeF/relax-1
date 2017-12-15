@@ -20,7 +20,8 @@
 		</action>
 		
 		<action name="addEmp" class="com.doerit.action.employee.EmployeeAction" method="addEMP">
-			<result name="success">/WEB-INF/content/admin/adminView.jsp</result>
+			<result name="success">/WEB-INF/content/admin/adminRegistration.jsp</result>
+			<result name="input">/WEB-INF/content/admin/adminRegistration.jsp</result>
 		</action>
 		
 		

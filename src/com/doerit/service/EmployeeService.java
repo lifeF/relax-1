@@ -64,4 +64,7 @@ public Pager search(Pager p, String searchKey, String searchWord) {
 		return p;
 		
 	}
+	public int insert(Employee em) {
+		return employeeMapper.insertSelective(em);
+	}
 }
