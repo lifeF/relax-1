@@ -14,6 +14,7 @@ public class UserAccountService {
 	private UserAccountMapper userAccountMapper;
 	
 	public int save(UserAccount u) {
+		System.out.print("i'm here");
 		return userAccountMapper.insertSelective(u);
 	}
 	

@@ -23,11 +23,13 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	@Autowired
 	DistrictService districtService;
 
+	// to hold current state of Employee
 	private byte state;
-	
-	//to insert 
+
+	// to insert user account
 	private UserAccount UserAccount;
-	
+
+	// employee attribute
 	private String EmployeeID;
 	private String searchKey;
 	private String searchWord;
@@ -40,15 +42,14 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	private String nic;
 	private String designation;
 	private String department;
+
+	// user attributes
 	private String userName;
 	private String userPassword;
+
+	// for Error and out put handle
 	private String Error;
 	private String ok;
-	
-	
-	
-	
-	
 
 	public byte getState() {
 		return state;
@@ -68,7 +69,11 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	}
 
 	public String viewAll() {
-
+		if(ok!="update") {
+			ok=null;
+		}
+		
+		
 		if (this.searchKey == null) {
 			if (this.EmployeeID != null) {
 				UserAccount = UserAccountService.viewByID(getEmployeeID());
@@ -80,83 +85,92 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 				}
 				UserAccount.setStatus(this.state);
 				UserAccountService.UPDATE(UserAccount);
+				ok="update";
 			}
 			try {
-				System.out.println(" List get From Again");
 				beforeAction();
 				pager = EmployeeService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());
 				pager = setActionContext(pager);
+				
+				
 			} catch (Exception e) {
 				addActionError("Exception occur");
 				// logger
 				e.printStackTrace();
+				
 			}
-			
-			
-		}
-		else {
+
+		} else {
 			try {
-				System.out.println(" List get From Again");
+				
 				beforeAction();
-				pager = EmployeeService.search(pager,this.searchKey, this.searchWord);
+				pager = EmployeeService.search(pager, this.searchKey, this.searchWord);
 				pager = setActionContext(pager);
+				
 			} catch (Exception e) {
 				addActionError("Exception occur");
 				// logger
 				e.printStackTrace();
 			}
-			
-			
-			
+
 		}
-		
-		
+
 		return SUCCESS;
 
 	}
-	
+
 	public String RegisterEMP() {
 		return SUCCESS;
 	}
+	
+
 	public String addEMP() {
 		try {
-		Error=null;
-		setOk(null);
-		Employee1=new Employee();
-		Employee1.setUserRole(this.userRole);
-		Employee1.setTitle(this.title);
-		Employee1.setSurname(this.surname);		
-		Employee1.setInitials(this.initials);	
-		Employee1.setFirstName(this.firstName);	
-		Employee1.setNic(this.nic);	
-		Employee1.setDesignation(this.designation);	
-		Employee1.setId("KGS"+nic+"V");
-		Employee1.setDepartment(this.department);
-		
-		UserAccount=new UserAccount();
-		UserAccount.setId("UK233SDW"+this.id);
-		UserAccount.setUserName(this.userName);
-		UserAccount.setUserPassword(this.userPassword);
-		UserAccount.setRelationId("KGS"+nic+"V");
-		UserAccount.setCategoryRelationId("EMPLOYEE");
-		byte status=1;
-		UserAccount.setStatus(status);
-		
-		UserAccount U1=UserAccountService.viewByEmail(this.userName);
-		
-		if(U1!=null) {
-			Error ="already use this username";
-			return INPUT;
-		}
-		//UserAccountService.save(UserAccount);
-		EmployeeService.insert(Employee1);
-		
-		this.setOk("ok");
-		
-		return SUCCESS;
-		}
-		catch(Exception e) {
-			Error="Error occured";
+			Error = null;
+			setOk(null);
+			// set Employee Account Details
+			Employee1 = new Employee(); // create Employee
+			Employee1.setUserRole(this.userRole);
+			Employee1.setTitle(this.title);
+			Employee1.setSurname(this.surname);
+			Employee1.setInitials(this.initials);
+			Employee1.setFirstName(this.firstName);
+			Employee1.setNic(this.nic);
+			Employee1.setDesignation(this.designation);
+			Employee1.setId("KGS" + this.nic + "V");
+			Employee1.setDepartment(this.department);
+			
+			// set User Account Details
+			UserAccount = new UserAccount();
+			UserAccount.setId("UK" + this.nic  + "W");
+			UserAccount.setUserName(this.userName);
+			UserAccount.setUserPassword(this.userPassword);
+			UserAccount.setRelationId("KGS" + this.nic + "V");
+			UserAccount.setCategoryRelationId("EMPLOYEE");
+			byte st = 1;
+			UserAccount.setStatus(st);
+
+			UserAccount U1 = UserAccountService.viewByEmail(this.userName);
+			Employee E1=EmployeeService.viewById(Employee1.getId());
+			if (U1 != null) {
+				Error = "already use this username";
+				return INPUT;
+			}
+			if (E1 != null) {
+				Error = "Employee already entered (ID :"+Employee1.getId()+") or check Entered Employee NIC";
+				return INPUT;
+			}
+			
+			//this.setError("User Account Insert Error");
+			UserAccountService.save(UserAccount);
+			//this.setError("Employee Account Insert Error");
+			EmployeeService.insert(Employee1);
+
+			this.setOk("ok");
+
+			return SUCCESS;
+		} catch (Exception e) {
+			//Error = "Error occured";
 			return INPUT;
 		}
 	}

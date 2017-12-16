@@ -125,40 +125,52 @@ public interface EmployeeMapper {
     
     int updateByPrimaryKey(Employee record);
     
-    @Select("SELECT c.* " + 
-    		" FROM tbl_employee  c " +  
-    		" WHERE c.ID LIKE #{searchValue}")
+    @Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+    		" WHERE c.ID LIKE #{searchValue}"+
+    		" ORDER BY c.ID  " +
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-    List<Employee> searchByID(@Param("searchValue")String likeSearchValue);
+    List<fullEmployeeDetails> searchByID(@Param("pager")Pager pager,@Param("searchValue")String likeSearchValue);
     
-    @Select("SELECT c.* " + 
-    		" FROM tbl_employee  c " +  
-    		" WHERE c.SURNAME LIKE #{searchValue} ")
+    @Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+    		" WHERE c.ID LIKE #{searchValue}"+
+    		" ORDER BY c.ID  " +
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-    List<Employee> searchBySurname(@Param("searchValue")String likeSearchValue);
+    List<fullEmployeeDetails> searchBySurname(@Param("pager")Pager pager,@Param("searchValue")String likeSearchValue);
     
-    @Select("SELECT c.* " + 
-    		" FROM tbl_employee  c " +  
-    		" WHERE c.FIRST_NAME LIKE #{searchValue} ")
+    @Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+    		" WHERE c.ID LIKE #{searchValue}"+
+    		" ORDER BY c.ID  " +
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-    List<Employee> searchByFirstName(@Param("searchValue")String likeSearchValue);
+    List<fullEmployeeDetails> searchByFirstName(@Param("pager")Pager pager,@Param("searchValue")String likeSearchValue);
 
-    @Select("SELECT c.* " + 
-    		" FROM tbl_employee c " +  
-    		" WHERE c.NIC LIKE #{searchValue} ")
+    @Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+    		" WHERE c.ID LIKE #{searchValue}"+
+    		" ORDER BY c.ID  " +
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-    List<Employee> searchByNic(@Param("searchValue")String likeSearchValue);    
+    List<fullEmployeeDetails> searchByNic(@Param("pager")Pager pager,@Param("searchValue")String likeSearchValue);    
     
-    @Select("SELECT c.* " + 
-    		" FROM tbl_employee c " +  
-    		" WHERE c.MOBILE LIKE #{searchValue} ")
+    @Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+    		" WHERE c.ID LIKE #{searchValue}"+
+    		" ORDER BY c.ID  " +
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-    List<Employee> searchByMobile(@Param("searchValue")String likeSearchValue);
+    List<fullEmployeeDetails> searchByMobile(@Param("pager")Pager pager,@Param("searchValue")String likeSearchValue);
     
-    @Select("SELECT c.* " + 
-    		" FROM tbl_employee  c " +  
-    		" WHERE c.EMAIL LIKE #{searchValue} ")
+    @Select("SELECT c.ID,c.NIC,c.USER_ROLE,c.TITLE,c.FIRST_NAME ,U.STATUS" + 
+    		" FROM tbl_employee AS c JOIN tbl_user_account AS U ON U.RELATION_ID = c.ID  COLLATE utf8_unicode_ci " + 
+    		" WHERE c.ID LIKE #{searchValue}"+
+    		" ORDER BY c.ID  " +
+    		" LIMIT #{pager.start}, #{pager.limit}")
     @ResultMap("BaseResultMap")
-    List<Employee> searchByEmail(@Param("searchValue")String likeSearchValue);
+    List<fullEmployeeDetails> searchByEmail(@Param("pager")Pager pager,@Param("searchValue")String likeSearchValue);
     
 }

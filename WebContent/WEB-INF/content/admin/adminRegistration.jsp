@@ -118,6 +118,7 @@
 
 
 															</s:if>
+
 															<s:if test="%{ok!=null}">
 																<div
 																	class="alert alert-success alert-dismissible fade in "
@@ -127,14 +128,92 @@
 																		<span aria-hidden="true">×</span>
 																	</button>
 
-																	<strong>Employee details was added</strong> .
-																	
+																	<strong>Employee details was added. </strong> .
+																	<!-- print modal -->
+																	<button type="button" class="btn btn-success"
+																		data-toggle="modal" data-target=".bs-example-modal-lg">
+																		<i class="glyphicon glyphicon-print"> </i>
+																	</button>
+
+
+																	<!-- print modal  end-->
+
 
 
 																</div>
 
 
 															</s:if>
+															<!-- model -->
+
+
+															<div class="modal fade bs-example-modal-lg" tabindex="-1"
+																role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-lg">
+																	<div class="modal-content">
+
+																		<div class="modal-header">
+																			<button type="button" class="close"
+																				data-dismiss="modal" aria-label="Close">
+																				<span aria-hidden="true">×</span>
+																			</button>
+																			<h4 class="modal-title" id="myModalLabel2">Profile
+																				Detail</h4>
+																		</div>
+																		<div class="modal-body">
+																			<h4></h4>
+																			<div class="row ">
+																				<div
+																					class=" col-sm-12  profile_details">
+																					<div class="well profile_view">
+																						<div class="col-sm-12">
+																							<h4 class="brief">
+																								<i>Digital Strategist</i>
+																							</h4>
+																							<div class="left col-xs-7">
+																								<h2>Nicole Pearson</h2>
+																								<p>
+																									<strong>About: </strong> Web Designer / UX /
+																									Graphic Artist / Coffee Lover
+																								</p>
+																								<ul class="list-unstyled">
+																									<li><i class="fa fa-building"></i>
+																										Address:</li>
+																									<li><i class="fa fa-phone"></i> Phone #:</li>
+																								</ul>
+																							</div>
+																							<div class="right col-xs-5 text-center">
+																								<img src="images/img.jpg" alt=""
+																									class="img-circle img-responsive">
+																							</div>
+																						</div>
+																						<div class="col-xs-12 bottom text-center">
+																							
+																							<div class="col-xs-12 col-sm-6 emphasis">
+																								<button type="button"
+																									class="btn btn-success btn-xs">
+																									<i class="fa fa-user"> </i> <i
+																										class="fa fa-comments-o"></i>
+																								</button>
+																								<button type="button"
+																									class="btn btn-primary btn-xs">
+																									<i class="fa fa-user"> </i> View Profile
+																								</button>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+																				<p></p>
+																			</div>
+																		</div>
+																		<div class="modal-footer center">Employee of
+																			Dental Hospital</div>
+
+																	</div>
+																</div>
+															</div>
+															<!-- model -->
 
 															<s:form namespace="/emp" action="addEmp" method="get">
 																<div data-parsley-validate

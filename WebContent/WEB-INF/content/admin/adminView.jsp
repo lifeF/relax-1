@@ -144,7 +144,8 @@
 																	<p class="lead center">ACTIVE EMPLOYEE</p>
 																</div>
 																<div class="col-sm-3 col-xs-12">
-																	<button type="button" class="btn btn-default btn-md">Add New Employee</button>
+																	<button type="button" class="btn btn-default btn-md">Add
+																		New Employee</button>
 																</div>
 																<div class="col-md-4 col-md-offset-1 pull-right">
 																	<!-- Search Bar -->
@@ -173,8 +174,8 @@
 																			<input type="hidden" name="searchKey" value="serial"
 																				id="search_param"> <input type="text"
 																				class="form-control" name="searchWord"
-																				placeholder="default is Employee ID" autofocus> <span
-																				class="input-group-btn"> <s:submit
+																				placeholder="default is Employee ID" autofocus>
+																			<span class="input-group-btn"> <s:submit
 																					cssClass="btn btn-default" type="button">
 																					<span class="glyphicon glyphicon-search"></span>
 																				</s:submit>
@@ -185,9 +186,45 @@
 																</div>
 
 															</div>
-														<hr>
+
+															<s:if test="%{ok!=null}">
+															
+																<s:if test="%{state==1 }">
+																	<div
+																		class="alert alert-success alert-dismissible fade in "
+																		role="alert" style="text-align: center;">
+																		<button type="button" class="close"
+																			data-dismiss="alert" aria-label="Close">
+																			<span aria-hidden="true">×</span>
+																		</button>
+
+																		<strong>Employee ID :<s:property value="%{EmployeeID}" /></strong>
+																		, Employee Status is Changed to Active Mode.
+
+
+																	</div>
+
+																</s:if>
+																<s:if test="%{state==0 }">
+																	<div
+																		class="alert alert-danger alert-dismissible fade in "
+																		role="alert" style="text-align: center;">
+																		<button type="button" class="close"
+																			data-dismiss="alert" aria-label="Close">
+																			<span aria-hidden="true">×</span>
+																		</button>
+
+																		<strong>Employee ID :<s:property value="%{EmployeeID}" /></strong>
+																		, Employee Status is Changed to Inactive Mode.
+
+
+																	</div>
+
+																</s:if>
+															</s:if>
+															<hr>
 														</div>
-														
+
 														<!--pager  -->
 														<s:actionerror cssClass="errorMessage" />
 
