@@ -15,6 +15,7 @@
 			<result name="success">/WEB-INF/content/admin/adminView.jsp</result>
 		</action>
 		
+		
 		<action name="RegisterEMP" class="com.doerit.action.employee.EmployeeAction" method="RegisterEMP">
 			<result name="success">/WEB-INF/content/admin/adminRegistration.jsp</result>
 		</action>

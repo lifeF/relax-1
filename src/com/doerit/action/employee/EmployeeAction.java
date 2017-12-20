@@ -50,6 +50,7 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 	// for Error and out put handle
 	private String Error;
 	private String ok;
+	
 
 	public byte getState() {
 		return state;
@@ -126,6 +127,7 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 
 	public String addEMP() {
 		try {
+		
 			Error = null;
 			setOk(null);
 			// set Employee Account Details
