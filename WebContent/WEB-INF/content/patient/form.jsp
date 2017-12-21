@@ -5,10 +5,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<s:include value="./WEB-INF/content/common/meta-tags.jsp"></s:include>
+<link
+	href="<s:url value="/css/dashboard-component.css" includeParams="none"/>"
+	rel="stylesheet" type="text/css">
+
+<s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
-<s:include value="./WEB-INF/content/common/css-include.jsp"></s:include>
-</head>
+<s:include value="/WEB-INF/content/common/css-loging-include.jsp"></s:include>
+
+<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include></head>
 
 <body class="nav-md">
 	<div class="container body">
