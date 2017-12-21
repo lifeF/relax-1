@@ -124,6 +124,10 @@ public class EmployeeAction extends AbstractDownloadManamentAction {
 		return SUCCESS;
 	}
 	
+	public String viewEmployeeProfile() {
+		setEmployeeID(EmployeeID);
+		return SUCCESS;
+	}
 
 	public String addEMP() {
 		try {

@@ -111,7 +111,7 @@
 														</a>
 														</label>
 
-														<!-- Tab 04  -->
+														<!-- Tab 02 -->
 														<label class="btn btn-default"
 															data-toggle-class="btn-primary"
 															data-toggle-passive-class="btn-default"
@@ -188,7 +188,7 @@
 															</div>
 
 															<s:if test="%{ok!=null}">
-															
+
 																<s:if test="%{state==1 }">
 																	<div
 																		class="alert alert-success alert-dismissible fade in "
@@ -198,8 +198,9 @@
 																			<span aria-hidden="true">×</span>
 																		</button>
 
-																		<strong>Employee ID :<s:property value="%{EmployeeID}" /></strong>
-																		, Employee Status is Changed to Active Mode.
+																		<strong>Employee ID :<s:property
+																				value="%{EmployeeID}" /></strong> , Employee Status is
+																		Changed to Active Mode.
 
 
 																	</div>
@@ -214,8 +215,9 @@
 																			<span aria-hidden="true">×</span>
 																		</button>
 
-																		<strong>Employee ID :<s:property value="%{EmployeeID}" /></strong>
-																		, Employee Status is Changed to Inactive Mode.
+																		<strong>Employee ID :<s:property
+																				value="%{EmployeeID}" /></strong> , Employee Status is
+																		Changed to Inactive Mode.
 
 
 																	</div>
@@ -314,7 +316,7 @@
 
 																						</s:url>
 
-																						<s:if test="%{userRole==ADMIN}">
+																						<s:if test="%{userRole== ADMIN}">
 
 																							<s:a href="%{#StateChangeURL}"
 																								cssClass="btn btn-xs btn-success disabled">
@@ -328,17 +330,20 @@
 																							</s:a>
 																						</s:else>
 
+																						<s:url var="ViewProfile" namespace="/emp"
+																							action="ViewProfile">
+																							<s:param name="EmployeeID" value="%{id}"></s:param>
 
-
-																						<button type="button"
-																							class="btn btn-primary btn-xs "
-																							data-toggle="modal"
-																							data-target=".bs-example-modal-sm">
-																							<i class="fa fa-user"> </i> View Profile
-																						</button>
+																						</s:url>
 
 
 
+																						<s:a href="%{#ViewProfile}"
+																							cssClass="btn btn-primary btn-xs disabled">
+																							
+																							<i class="fa fa-user"> </i>
+																							<span>View Profile</span>
+																						</s:a>
 																					</div>
 
 
@@ -354,34 +359,7 @@
 
 																</s:iterator>
 															</div>
-															<!-- model -->
-
-
-															<div class="modal fade bs-example-modal-sm" tabindex="-1"
-																role="dialog" aria-hidden="true">
-																<div class="modal-dialog modal-sm">
-																	<div class="modal-content">
-
-																		<div class="modal-header">
-																			<button type="button" class="close"
-																				data-dismiss="modal" aria-label="Close">
-																				<span aria-hidden="true">×</span>
-																			</button>
-																			<h4 class="modal-title" id="myModalLabel2">Profile
-																				Detail</h4>
-																		</div>
-																		<div class="modal-body">
-																			<h4></h4>
-																			<p></p>
-																		</div>
-																		<div class="modal-footer center">Employee of
-																			Dental Hospital</div>
-
-																	</div>
-																</div>
-															</div>
-															<!-- model -->
-
+															
 
 															<div class="text-center bottom">
 																<s:include value="/WEB-INF/content/common/pager.jsp"></s:include>

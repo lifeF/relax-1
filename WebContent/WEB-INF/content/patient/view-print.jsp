@@ -21,7 +21,7 @@
         <h2 class="page-header" align="center">
 			
 				Dental Hospital (Teaching) - Peradeniya <br>
-				Patient Central Record 
+				Employee
 				
         </h2>		
         <small class="pull-right">Date: 2/10/2014</small>
