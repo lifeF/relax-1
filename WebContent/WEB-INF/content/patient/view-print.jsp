@@ -8,10 +8,10 @@
 <head>
 <s:include value="/WEB-INF/content/common/meta-tags.jsp"></s:include>
 <title><s:text name="global.application.title" /></title>
-<s:include value="/WEB-INF/content/common/css.jsp"></s:include>
+<s:include value="/WEB-INF/content/common/css-include.jsp"></s:include>
 </head>
 
-<body onload="window.print();">s
+<body onload="window.print();">
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
@@ -19,10 +19,10 @@
     <div class="row">
       <div class="col-xs-12">
         <h2 class="page-header" align="center">
-			
+			<u>
 				Dental Hospital (Teaching) - Peradeniya <br>
-				Employee
-				
+				Patient Central Record 
+			</u>
         </h2>		
         <small class="pull-right">Date: 2/10/2014</small>
 		<hr>
