@@ -28,7 +28,6 @@
     <result column="UPDATE_USER_ID" property="updateUserId" jdbcType="CHAR" />
     <result column="UPDATE_DATETIME" property="updateDatetime" jdbcType="TIMESTAMP" />
   </resultMap>
-  
   <sql id="Example_Where_Clause" >
     <!--
       WARNING - @mbggenerated

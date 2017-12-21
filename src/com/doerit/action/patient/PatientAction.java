@@ -1,4 +1,4 @@
-					package com.doerit.action.patient;
+package com.doerit.action.patient;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -84,8 +84,6 @@ public class PatientAction extends AbstractDownloadManamentAction {
 	}*/
 	
 	public String viewAll() {
-		
-		System.out.println("i'm here");
 		try {
 			beforeAction();
 			pager = patientService.viewAllByPagerAndStatus(pager, State.ACTIVE.getDatabaseValue());

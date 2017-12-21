@@ -9,13 +9,14 @@ import com.doerit.exception.SessionNotExist;
 import com.doerit.model.Employee;
 import com.doerit.model.UserAccount;
 import com.doerit.model.ActivityLogger.MessageType;
+import com.doerit.model.Department;
+import com.doerit.service.DepartmentService;
 import com.doerit.service.EmployeeService;
 import com.doerit.service.UserAccountService;
 import com.doerit.util.SessionKey;
 import com.doerit.util.SessionUser;
 
 public class SignInAction extends AbstractManagementAction {
-	
 
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(SignInAction.class);
@@ -23,7 +24,6 @@ public class SignInAction extends AbstractManagementAction {
 	@Autowired private UserAccountService userAccountService;
 	@Autowired private EmployeeService employeeService;
 	private UserAccount userAccount;
-	private String SignInError ;
 
 	public String myProfile() throws SessionNotExist {
 
@@ -59,7 +59,6 @@ public class SignInAction extends AbstractManagementAction {
 
 			if (su == null) {
 				addActionError("User not found in the respective user category");
-				setSignInError("ERROR");
 				return INPUT;
 			} else {
 				
@@ -109,7 +108,30 @@ public class SignInAction extends AbstractManagementAction {
 					}
 				}
 				
+				/*				else if(userAccount.getCategoryRelationId().equals("DEPARTMENT")) {
+					
+					String foreignKey = userAccount.getRelationId();
+					
+					//Employee employee = employeeService.viewById(foreignKey);
+					Department department = departmentService.viewById(foreignKey);
+
+					if(department != null) {
+						su.setRole("DEPARTMENT");
+						su.setRoleName(department.getUserRole());
+						su.setName(department.getName());
+						addSessionUser(su);
+						
+						addLoggerMessage("tbl_user_account", MessageType.SIGN_IN.toString(),
+								"SUCCESS", "Email: " + su.getName() + ", Host: " + ServletActionContext.getRequest().getRemoteHost());
+						
+					} else {
+						addActionError("Department does not exist in the department repo");
+						return INPUT;
+					}
+				}*/				
 				
+				/*addLoggerMessage(su.getId(), ActivityLogger.MessageType.SIGN_IN.toString(), "Web Application",
+						su.getEmail());*/
 				return SUCCESS;
 			}
 
@@ -121,8 +143,7 @@ public class SignInAction extends AbstractManagementAction {
 	}
 
 	private String signInError() {
-		//addActionError("Invalid authentication");
-		setSignInError("ERROR");
+		addActionError("Invalid authentication");
 		return INPUT;
 	}
 
@@ -187,12 +208,4 @@ public class SignInAction extends AbstractManagementAction {
 		this.userAccount = userAccount;
 	}
 
-	public String getSignInError() {
-		return SignInError;
-	}
-
-	public void setSignInError(String signInError) {
-		SignInError = signInError;
-	}
-	
 }

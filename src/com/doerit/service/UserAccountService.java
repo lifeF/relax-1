@@ -14,24 +14,11 @@ public class UserAccountService {
 	private UserAccountMapper userAccountMapper;
 	
 	public int save(UserAccount u) {
-		System.out.print("i'm here");
-		return userAccountMapper.insertSelective(u);
+		return userAccountMapper.insert(u);
 	}
 	
 	public UserAccount viewByEmailAndPassword(String email, String password) {
 		return userAccountMapper.findByEmailPasswordAndState(email, password, State.ACTIVE.getDatabaseValue());
-	}
-	
-	public UserAccount viewByEmail(String email) {
-		return userAccountMapper.findByEmailandState(email,  State.ACTIVE.getDatabaseValue());
-	}
-	
-	public UserAccount viewByID(String EmployeeID) {
-		return userAccountMapper.viewByID(EmployeeID);
-	}
-	
-	public int UPDATE(UserAccount UserAccount) {
-		return userAccountMapper.updateByPrimaryKey(UserAccount);
 	}
 	
 }

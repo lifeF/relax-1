@@ -24,13 +24,9 @@ public class DashBoardAction extends AbstractManagementAction {
 			isPatientAuthorizer = authorizeVisits();
 			
 			if (userRole.equals("EMPLOYEE") && isPatientAuthorizer) {
-				
-				authEmployeeDashboard();
-				if(isAdmin()) {
-					System.out.println("Addmin signin");
-					return "ADMIN";
-				}
 				System.out.println("auth emp login");
+				authEmployeeDashboard();
+				
 				return "AUTHORIZED "+userRole;
 				
 			} else if( userRole.equals("EMPLOYEE") ) {
@@ -46,8 +42,7 @@ public class DashBoardAction extends AbstractManagementAction {
 			} else if (userRole.equals("DEPARTMENT")) {
 				departmentDashboard();
 				
-				return userRole; 
-				
+				return userRole;
 			} 
 			
 		} catch (SessionNotExist e) {

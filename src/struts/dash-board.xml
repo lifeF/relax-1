@@ -15,28 +15,8 @@
 			<result name="PATIENT">/WEB-INF/content/dashboard/user.jsp</result>	
 			<result name="MINISTRY">/WEB-INF/content/dashboard/user.jsp</result>				
 			<result name="input">/WEB-INF/content/dashboard/error.jsp</result>
-			
-			<result name="ADMIN" type="chain" >	
-				<param name="actionName">ListGetForAdmin</param> 
-			</result>
-			
 		</action>
-		<action name="ListGetForAdmin" class="com.doerit.action.employee.EmployeeAction" method="dashboard">
-			<result name="success">/WEB-INF/content/admin/adminDashboard.jsp</result>
-		</action>
-		
-		<action name="Diagnostic" class="com.doerit.action.diagnostic.diagnosticAction"
-			method="open">
-			<result name="success">/WEB-INF/content/patient/diagnostic/Diaganostic.jsp</result>
-		</action>
-		
-		
-				
-		
 		
 	</package>
-	
-	
-	
 		
 </struts>

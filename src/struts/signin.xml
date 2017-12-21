@@ -17,7 +17,7 @@
 			</result>
 			<result name="input">/WEB-INF/content/sign-in.jsp</result>
 		</action>
-	
+
 
 		<action name="sign-out" class="com.doerit.action.signin.SignInAction"
 			method="signOut">
